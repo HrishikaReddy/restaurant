@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Form</title>
+  <style>
+    body {font-family:Arial, sans-serif;background:#f4f9ff;margin:0;padding:0;}
+    .container {max-width:500px;margin:50px auto;background:#fff;padding:30px;border-radius:12px;
+                box-shadow:0 6px 15px rgba(0,0,0,0.1);}
+    h2 {text-align:center;color:#0077ff;}
+    label {display:block;margin-top:15px;font-weight:bold;}
+    input,textarea {width:100%;padding:10px;margin-top:5px;border:1px solid #ccc;border-radius:6px;}
+    .product-display {margin:20px 0;padding:12px;background:#eef5ff;border-left:5px solid #0077ff;}
+    button {width:100%;margin-top:20px;padding:12px;background:#0077ff;color:#fff;font-size:1rem;border:none;
+            border-radius:8px;cursor:pointer;transition:0.3s;}
+    button:hover {background:#005ec4;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Order Form</h2>
+    <div class="product-display">
+      <p><strong>Selected Product:</strong> <span id="product"></span></p>
+    </div>
+    <form onsubmit="proceed(event)">
+      <label>Full Name</label>
+      <input type="text" required>
+      <label>Email</label>
+      <input type="email" required>
+      <label>Address</label>
+      <textarea required></textarea>
+      <button type="submit">Proceed to Payment</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("product").innerText = localStorage.getItem("selectedProduct") || "No product selected";
+    function proceed(e){
+      e.preventDefault();
+      window.location.href="payment.html";
+    }
+  </script>
+</body>
+</html>
