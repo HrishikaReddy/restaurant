@@ -3,44 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aha Restaurant</title>
+  <title>Foodie's Paradise</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff8f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fffaf6;
       color: #333;
     }
+
+    /* Hero Banner */
     header {
-      background: url('https://cdn.pixabay.com/photo/2016/11/18/15/01/restaurant-1837150_1280.jpg') center/cover no-repeat;
-      height: 60vh;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('https://cdn.pixabay.com/photo/2017/08/10/07/16/restaurant-2619904_1280.jpg')
+                  center/cover no-repeat;
+      height: 350px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: white;
+      color: #fff;
       text-align: center;
+      text-shadow: 2px 2px 6px #000;
     }
     header h1 {
-      font-size: 3rem;
-      background: rgba(0,0,0,0.5);
-      padding: 15px 25px;
-      border-radius: 10px;
+      font-size: 3.2rem;
+      margin: 0;
     }
+    header p {
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+
+    /* Product Section */
     .products {
-      padding: 50px 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      padding: 50px;
     }
     .card {
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-radius: 14px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       overflow: hidden;
-      transition: transform 0.2s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
     .card img {
       width: 100%;
@@ -48,102 +59,114 @@
       object-fit: cover;
     }
     .card-content {
-      padding: 20px;
+      padding: 18px;
+      text-align: center;
     }
     .card-content h3 {
-      margin: 0;
-      color: #e63946;
+      margin: 10px 0;
+      font-size: 1.3rem;
+      color: #222;
+    }
+    .card-content p {
+      margin: 6px 0;
+      color: #555;
     }
     .price {
+      color: #e63946;
       font-weight: bold;
-      margin: 10px 0;
-      color: #2a9d8f;
+      font-size: 1.1rem;
     }
     button {
-      background: #e63946;
-      color: white;
+      margin-top: 12px;
+      background: linear-gradient(45deg, #ff6b6b, #ffcc70);
+      color: #fff;
       border: none;
       padding: 10px 20px;
-      border-radius: 8px;
+      border-radius: 25px;
       cursor: pointer;
-      transition: background 0.3s;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: 0.3s;
     }
     button:hover {
-      background: #d62828;
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
+  <!-- Hero Banner -->
   <header>
-    <h1>Welcome to Aha Restaurant</h1>
+    <h1>Foodie's Paradise</h1>
+    <p>Delicious food, made with love 🍴</p>
   </header>
 
+  <!-- Product Section -->
   <section class="products">
     <div class="card">
-      <img src="https://cdn.pixabay.com/photo/2017/01/22/19/20/cake-2001781_1280.jpg" alt="Cake">
+      <img src="https://cdn.pixabay.com/photo/2016/11/29/02/12/cakes-1868544_1280.jpg">
       <div class="card-content">
-        <h3>Cake</h3>
-        <p>Delicious creamy cake with fresh toppings.</p>
-        <p class="price">₹350</p>
-        <button onclick="buyNow('Cake')">Buy Now</button>
+        <h3>Chocolate Cake</h3>
+        <p>Rich & creamy delight for every occasion.</p>
+        <p class="price">₹450</p>
+        <button onclick="buy('Chocolate Cake - ₹450')">Buy Now</button>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://cdn.pixabay.com/photo/2018/05/25/08/14/biryani-3427097_1280.jpg" alt="Biryani">
+      <img src="https://cdn.pixabay.com/photo/2018/05/25/08/14/biryani-3427097_1280.jpg">
       <div class="card-content">
-        <h3>Biryani</h3>
-        <p>Spicy and aromatic biryani full of flavors.</p>
+        <h3>Chicken Biryani</h3>
+        <p>Aromatic spices with tender chicken.</p>
         <p class="price">₹250</p>
-        <button onclick="buyNow('Biryani')">Buy Now</button>
+        <button onclick="buy('Chicken Biryani - ₹250')">Buy Now</button>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/milkshake-1954537_1280.jpg" alt="Milkshake">
+      <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/milkshake-1954537_1280.jpg">
       <div class="card-content">
-        <h3>Milkshake</h3>
-        <p>Refreshing milkshake with ice cream blend.</p>
-        <p class="price">₹120</p>
-        <button onclick="buyNow('Milkshake')">Buy Now</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://cdn.pixabay.com/photo/2017/03/27/13/36/ice-cream-2179092_1280.jpg" alt="Ice Cream">
-      <div class="card-content">
-        <h3>Ice Cream</h3>
-        <p>Chilled ice cream with multiple flavors.</p>
-        <p class="price">₹150</p>
-        <button onclick="buyNow('Ice Cream')">Buy Now</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://cdn.pixabay.com/photo/2021/02/06/11/12/pizza-5989010_1280.jpg" alt="Pizza">
-      <div class="card-content">
-        <h3>Pizza</h3>
-        <p>Cheesy pizza loaded with fresh toppings.</p>
-        <p class="price">₹400</p>
-        <button onclick="buyNow('Pizza')">Buy Now</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/salad-1239074_1280.jpg" alt="Salad">
-      <div class="card-content">
-        <h3>Salad</h3>
-        <p>Healthy salad with fresh veggies and dressing.</p>
+        <h3>Strawberry Milkshake</h3>
+        <p>Sweet, creamy, and refreshing.</p>
         <p class="price">₹180</p>
-        <button onclick="buyNow('Salad')">Buy Now</button>
+        <button onclick="buy('Strawberry Milkshake - ₹180')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2017/03/27/13/36/ice-cream-2179092_1280.jpg">
+      <div class="card-content">
+        <h3>Vanilla Ice Cream</h3>
+        <p>Classic creamy frozen dessert.</p>
+        <p class="price">₹120</p>
+        <button onclick="buy('Vanilla Ice Cream - ₹120')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg">
+      <div class="card-content">
+        <h3>Cheese Burger</h3>
+        <p>Loaded with cheese & juicy patties.</p>
+        <p class="price">₹200</p>
+        <button onclick="buy('Cheese Burger - ₹200')">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+      <div class="card-content">
+        <h3>Pepperoni Pizza</h3>
+        <p>Hot, cheesy, and loaded with toppings.</p>
+        <p class="price">₹600</p>
+        <button onclick="buy('Pepperoni Pizza - ₹600')">Buy Now</button>
       </div>
     </div>
   </section>
 
   <script>
-    function buyNow(product) {
+    function buy(product){
       localStorage.setItem("selectedProduct", product);
-      window.location.href = "form.html";
+      window.location.href="form.html";
     }
   </script>
 </body>
